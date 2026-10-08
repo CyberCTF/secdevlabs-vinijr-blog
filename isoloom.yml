@@ -2,7 +2,7 @@
 # ViniJR Blog (secDevLabs, by Globo.com) as an Isoloom spec: a PHP blog whose contact form parses
 # XML with external entities enabled (XXE), vendored unchanged in build/app/app/ (the app folder
 # owasp-top10-2021-apps/a5/vinijr-blog of secDevLabs), built by an overlay of upstream's
-# Dockerfile. `isoloom generate`, then `isoloom up docker`.
+# Dockerfile. `isoloom generate`, then `isoloom run docker`.
 version: 1
 name: secdevlabs-vinijr-blog
 
