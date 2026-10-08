@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# ViniJR Blog (secDevLabs, by Globo.com) as an Isoloom spec: a PHP blog whose contact form parses
+# XML with external entities enabled (XXE), vendored unchanged in build/app/app/ (the app folder
+# owasp-top10-2021-apps/a5/vinijr-blog of secDevLabs), built by an overlay of upstream's
+# Dockerfile. `isoloom generate`, then `isoloom up docker`.
+version: 1
+name: secdevlabs-vinijr-blog
+
+networks:
+  lab: { cidr: 10.60.103.0/24, internet: false }
+
+machines:
+  app:
+    networks: { lab: 10 }
+    services: [{ port: 80, name: web, http: true, publish: 10004 }]
+    resources: { cpus: 1, memory_mb: 256 }
+    docker:
+      build: build/app
+
+checks:
+  - name: the blog answers
+    http: http://app/
+    wait: 120
+  - name: the contact form parses posted XML
+    script: checks/contact.sh
+
+message: |
+  ViniJR Blog answers at http://localhost:{{ machines.app.services.0.publish }}/. Watch what its
+  contact form sends to contact.php.
