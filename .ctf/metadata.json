@@ -4,11 +4,5 @@
   "question": "Use the contact form's XML parser to read /etc/passwd from the server.",
   "category": "WEB",
   "difficulty": 2,
-  "evidence_kind": "SECRET",
-  "capabilities": [
-    "xxe",
-    "security-misconfiguration",
-    "local-file-read",
-    "php"
-  ]
+  "evidence_kind": "SECRET"
 }
