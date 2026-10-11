@@ -1,0 +1,42 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Read a local file through the contact form's XML parser: get /ctf/flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-secdevlabs-vinijr-blog}",
+      "hints": [
+        "The contact form sends XML, and the sender's name is echoed back.",
+        "Read about XML external entities."
+      ],
+      "steps": [
+        {
+          "key": "file",
+          "title": "Find the endpoint",
+          "prompt": "Which PHP file parses the XML?",
+          "check": {
+            "answer": [
+              "contact.php"
+            ]
+          }
+        },
+        {
+          "key": "class",
+          "title": "Name the weakness",
+          "prompt": "What class of vulnerability is this? (acronym accepted)",
+          "check": {
+            "answer": [
+              "xxe",
+              "xml external entity",
+              "xml external entity injection"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
