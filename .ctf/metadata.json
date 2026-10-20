@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-secdevlabs-vinijr-blog",
+  "slug": "secdevlabs-vinijr-blog",
   "title": "secDevLabs ViniJR Blog",
   "description": "A PHP fan blog about a football player with a contact form. The form sends XML to contact.php, which parses it with external entity loading enabled and echoes the sender's name.",
-  "question": "Use the contact form's XML parser to read /ctf/flag from the server (XXE).",
-  "category": "WEB",
+  "category": "web",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Use the contact form's XML parser to read /ctf/flag from the server (XXE)."
 }
